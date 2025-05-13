@@ -58,6 +58,7 @@ SELECT * FROM <your_stream_name>;
 </p>
 
 
+## Bronze Table
 <p><strong data-start="68" data-end="142">Create a companion table designed to support Change Data Capture (CDC)</strong> by including additional metadata columns such as <code>change_type</code>, <code>is_update</code>, and <code>change_timestamp</code>. This structure enables tracking of data changes over time, providing a clear audit trail for insertions, updates, and deletions.</p>
 
 ```sql
@@ -75,4 +76,4 @@ create or replace table movie_booking_cdc_events(
 );
 ```
 
-## Bronze Table
+
