@@ -1,4 +1,36 @@
-# Dynamic-Tables---Snowflake
+# Dynamic-Tables : Snowflake
+
+<h3 data-start="199" data-end="223">Problem Statement</h3>
+<p data-start="225" data-end="522">In data-driven systems like an online movie ticket booking platform, it's critical to capture and process data changes in near real-time. Users frequently book, cancel, or modify ticket reservations &mdash; and these changes must be accurately reflected in downstream analytics and reporting layers.</p>
+<p data-start="524" data-end="837">Traditional ETL pipelines fall short in handling <strong data-start="573" data-end="596">incremental changes</strong> efficiently. They often rely on full refreshes, which are resource-intensive and delay insight delivery. This creates a gap between raw transactional activity and business-ready metrics like revenue, cancellations, and ticket sales.</p>
+
+<p data-start="861" data-end="1057">In this project, we aim to build a robust <strong data-start="903" data-end="945">CDC-enabled data pipeline in Snowflake</strong> using <strong data-start="952" data-end="963">streams</strong>, <strong data-start="965" data-end="974">tasks</strong>, and <strong data-start="980" data-end="1010">multi-layered architecture</strong> (Bronze &rarr; Silver &rarr; Gold). The objective is to:</p>
+<ul data-start="1059" data-end="1445">
+<li data-start="1059" data-end="1165">
+<p data-start="1061" data-end="1165">Track all inserts, updates, and deletes in the raw <code data-start="1112" data-end="1131">movie_booking_raw</code> table using <strong data-start="1144" data-end="1165">Snowflake Streams</strong></p>
+</li>
+<li data-start="1166" data-end="1219">
+<p data-start="1168" data-end="1219">Store CDC events in a Bronze table for traceability</p>
+</li>
+<li data-start="1220" data-end="1304">
+<p data-start="1222" data-end="1304">Transform and filter meaningful changes (e.g., status updates) in the Silver layer</p>
+</li>
+<li data-start="1305" data-end="1445">
+<p data-start="1307" data-end="1339">Aggregate business metrics like:</p>
+<ul data-start="1342" data-end="1445">
+<li data-start="1342" data-end="1366">
+<p data-start="1344" data-end="1366">&nbsp;Total tickets sold</p>
+</li>
+<li data-start="1369" data-end="1411">
+<p data-start="1371" data-end="1411">&nbsp;Total revenue from completed bookings</p>
+</li>
+<li data-start="1414" data-end="1445">
+<p data-start="1416" data-end="1445">&nbsp;Total booking cancellations</p>
+</li>
+</ul>
+</li>
+</ul>
+<p data-start="1447" data-end="1622">Automation is handled using <strong data-start="1475" data-end="1494">Snowflake Tasks</strong>, ensuring the pipeline runs on a defined schedule and provides fresh, business-ready data with minimal manual intervention.</p>
 
 ```sql
 create database movies;
